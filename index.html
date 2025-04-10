@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>OPS Plan Overview</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+
+        font-size: 19px;
+
+        background-color: lightblue;
+
+        color: black;
+
+        margin: 40px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      img {
+        display: block;
+
+        margin: 0 auto;
+
+        width: 150px;
+
+        border-radius: 10px;
+      }
+
+      table {
+        width: 100%;
+
+        border-collapse: collapse;
+
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+
+        padding: 10px;
+
+        text-align: left;
+      }
+
+      th {
+        background-color: lightgreen;
+      }
+
+      .chart-container {
+        width: 80%;
+
+        margin: 30px auto;
+      }
+
+      .comment {
+        text-align: center;
+
+        font-weight: bold;
+
+        margin-top: -20px;
+
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>OPS Plan Overview</h1>
+
+    <h2>About Me</h2>
+
+    <img src="karan (2).jpg" alt="My Selfie" />
+
+    <p style="text-align: center">
+      Help Desk Supervisor | IT Support Leader | Problem Solver
+    </p>
+
+    <h2>Reason for Plan</h2>
+
+    <p style="text-align: center">
+      As the Help Desk Supervisor, I am presenting the upcoming fiscal year
+      operations plan. This plan will improve IT support efficiency, enhance
+      service delivery, and ensure smooth internal operations.
+    </p>
+
+    <h2>Mission</h2>
+
+    <p style="text-align: center">
+      Provide fast, reliable IT support to improve employee productivity.
+    </p>
+
+    <h2>Vision</h2>
+
+    <p style="text-align: center">
+      Future-ready IT support with automation and proactive solutions.
+    </p>
+
+    <h2>SMART Goals & Benefits</h2>
+
+    <table>
+      <tr>
+        <th>SMART Goal</th>
+        <th>Benefit</th>
+      </tr>
+
+      <tr>
+        <td>Reduce average response time by 10% by year end</td>
+        <td>
+          Faster resolution, better productivity, improved service experience.
+        </td>
+      </tr>
+
+      <tr>
+        <td>Increase first contact resolution rate by 10%</td>
+        <td>Reduces repeat tickets, improves efficiency, user satisfaction.</td>
+      </tr>
+
+      <tr>
+        <td>Decrease incident resolution time by 10%</td>
+        <td>Resolves issues faster, boosts productivity, better experience.</td>
+      </tr>
+
+      <tr>
+        <td>Increase self-service effectiveness by 10%</td>
+        <td>Reduces workload, empowers users, enhances efficiency.</td>
+      </tr>
+
+      <tr>
+        <td>Decrease backlog by 15%</td>
+        <td>Improves response times and reduces staff overload.</td>
+      </tr>
+    </table>
+
+    <h2>Monthly Progress Charts</h2>
+
+    <div class="chart-container">
+      <canvas id="chart1"></canvas>
+
+      <p class="comment">
+        We're close to our target in reducing response time.
+      </p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="chart2"></canvas>
+
+      <p class="comment">
+        Great progress — first contact resolution exceeded our goal!
+      </p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="chart3"></canvas>
+
+      <p class="comment">
+        Resolution time needs slight improvement to meet goal.
+      </p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="chart4"></canvas>
+
+      <p class="comment">Self-service tools are improving — almost at goal.</p>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="chart5"></canvas>
+
+      <p class="comment">
+        Backlog reduced significantly but still room to grow.
+      </p>
+    </div>
+
+    <h2>Open to Feedback</h2>
+
+    <p style="text-align: center">Share suggestions for better IT service!</p>
+
+    <script>
+      const chartData = [
+        { id: "chart1", label: "Reduce Response Time", goal: 10, actual: 8 },
+
+        {
+          id: "chart2",
+          label: "First Contact Resolution",
+          goal: 10,
+          actual: 12,
+        },
+
+        {
+          id: "chart3",
+          label: "Incident Resolution Time",
+          goal: 10,
+          actual: 7,
+        },
+
+        {
+          id: "chart4",
+          label: "Self-Service Effectiveness",
+          goal: 10,
+          actual: 9,
+        },
+
+        { id: "chart5", label: "Backlog Reduction", goal: 15, actual: 10 },
+      ];
+
+      chartData.forEach((chart) => {
+        new Chart(document.getElementById(chart.id), {
+          type: "bar",
+
+          data: {
+            labels: ["Goal", "Actual"],
+
+            datasets: [
+              {
+                label: chart.label,
+
+                data: [chart.goal, chart.actual],
+
+                backgroundColor: ["lightgreen", "lightcoral"],
+              },
+            ],
+          },
+
+          options: {
+            responsive: true,
+
+            plugins: {
+              legend: { display: false },
+
+              tooltip: { enabled: true },
+            },
+
+            scales: {
+              y: { beginAtZero: true, max: 20 },
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
